@@ -70,13 +70,10 @@ app.post("/failure", function(req,res){
 
 
 app.listen(process.env.PORT || 3000, function(){
-    console.log("Server Started on port 3000");
-    console.log(process.env.key);
+    console.log("Server Started on port 3000")
+    console.log(process.env.key)
 });
 
+// Export the Express API
+module.exports = app
 
-// API KEY
-// f9a5a6568c452e189d441badd917f9c7-us21
-
-// LIST ID
-//b42e43970a 
