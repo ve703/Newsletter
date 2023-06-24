@@ -10,6 +10,8 @@ const req = require("express/lib/request");
 
 const app = express();
 
+require('dotenv').config() //to use the variables from env via process.env
+
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -43,7 +45,7 @@ const url ="https://us21.api.mailchimp.com/3.0/lists/b42e43970a";
 const options =
 {
 method: "POST",
-auth: "vedant1:2c68741a539afa3144ccfea833f35342-us21"
+auth: "vedant1:"+ process.env.key
 }; 
 const request= https.request(url,options, function (response) {
 
@@ -69,7 +71,7 @@ app.post("/failure", function(req,res){
 
 app.listen(process.env.PORT || 3000, function(){
     console.log("Server Started on port 3000");
-
+    console.log(process.env.key);
 });
 
 
